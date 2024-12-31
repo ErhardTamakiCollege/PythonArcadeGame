@@ -1,32 +1,41 @@
-""" Sprite Sample Program """
-
-import random
+"""
+Platformer Game
+"""
 import arcade
 
-# --- Constants ---
-SPRITE_SCALING_PLAYER = 0.5
-SPRITE_SCALING_COIN = 0.2
-COIN_COUNT = 50
-
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+# Constants for width and height of the game window.
+SCREEN_WIDTH = 1000
+SCREEN_HEIGHT = 650
+SCREEN_TITLE = "Platformer"
 
 
 class MyGame(arcade.Window):
-    """ Our custom Window Class"""
+    """
+    Main application class.
+    """
 
     def __init__(self):
-        """ Initializer """
-        # Call the parent class initializer
-        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, "Sprite Example")
+
+        # Call the parent class and set up the window
+        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
+
+        arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
+
+    def setup(self):
+        """Set up the game here. Call this function to restart the game."""
+        pass
 
     def on_draw(self):
-        arcade.start_render()
+        """Render the screen."""
+
+        self.clear()
+        # Code to draw the screen goes here
 
 
 def main():
-    """ Main method """
+    """Main function"""
     window = MyGame()
+    window.setup()
     arcade.run()
 
 
